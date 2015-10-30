@@ -10,6 +10,10 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+	
+	
+	
+	
 
     <!-- 2. 加载spring的xml到spring的上下文容器 -->
     <context-param>
