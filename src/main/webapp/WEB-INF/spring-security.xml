@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+			http://www.springframework.org/schema/security
+			http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+    <!--use-expressions="true" 的意思是开启表达式 access-denied-page的意思是，当验证权限失败后会跳转到的页面  -->
+    <security:http auto-config="true" use-expressions="true" access-denied-page="/auth/denied" >
+
+    </security:http>
+
+    <!-- 配置一个认证管理器 -->
+    <security:authentication-manager>
+        <security:authentication-provider>
+            <security:user-service>
+                <!-- 这样的配置表示向系统中添加了一个用户 用户名和密码都为admin ,并且该用户拥有ROLE_USER角色（角色可以用逗号隔开） -->
+                <security:user name="admin" password="admin" authorities="ROLE_USER"/>
+            </security:user-service>
+        </security:authentication-provider>
+    </security:authentication-manager>
+
+</beans>
