@@ -1,0 +1,7 @@
+Base on LiquiBase 3.2.0 version
+How to increase database development with liquibase script?
+Add changeset in file src\main\resources\warmup-createtable-1.0-version.xml
+
+Switch to project root path, run mvn liquibase:update
+
+Any questions, you can refer to http://www.liquibase.org/
