@@ -7,14 +7,16 @@
 
     <changeSet id="1" author="Ericke.Zhang">
         <createTable tableName="WeiNuts_User">
-            <column name="id" type="NUMERIC(19,0)" autoIncrement="true"/>
+            <column name="id" type="NUMERIC(19,0)" autoIncrement="0">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
             <column name="loginName" type="varchar(50)" />
             <column name="loginPwd" type="varchar(50)" />
             <column name="userName" type="varchar(50)" />
             <column name="gender" type="varchar(50)" />
             <column name="phoneNumber" type="varchar(50)" />
             <column name="email" type="varchar(50)" />
-            <column name="validFlag" type="boolean" defaultValueBoolean="true" />
+            <column name="validFlag" type="boolean" defaultValueBoolean="false" />
         </createTable>
     </changeSet>
 

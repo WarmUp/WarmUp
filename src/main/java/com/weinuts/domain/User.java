@@ -1,12 +1,14 @@
 package com.weinuts.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  * Created by Administrator on 10/30/2015.
  */
 @Entity
-public class Users extends BaseEntity {
+@Table(name = "WeiNuts_User")
+public class User extends BaseEntity {
 
     private static final long serialVersionUID = 7602785183424649332L;
 

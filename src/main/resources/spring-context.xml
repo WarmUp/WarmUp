@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+        http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.2.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.2.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd"
+	default-lazy-init="true">
+
+	<!--第一步 -->
+	<!--定义服务层代码存放的包扫描路径 -->
+	<context:component-scan base-package="com.weinuts.service" />
+
+	<!--第二步 -->
+	<!--定义实体的工厂bean -->
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="userPU" />
+		<property name="persistenceXmlLocation" value="classpath:persistence.xml"></property>
+	</bean>
+
+	<!--第三步 -->
+	<!--定义事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<!--第四步 -->
+	<!--定义repository接口的存放目录 -->
+	<!--定义接口实现的后缀，通常用Impl -->
+	<!--定义实体工厂的引用 -->
+	<!--定义事务管理器的引用 -->
+	<jpa:repositories base-package="com.weinuts.dao"
+		repository-impl-postfix="Impl" entity-manager-factory-ref="entityManagerFactory"
+		transaction-manager-ref="transactionManager" />
+
+	<!--第五步 -->
+	<!--声明采用注解的方式申明事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<!--&lt;!&ndash; spring启动时扫描项目路径下的properties文件,后续用${key }方式取出对应值,这样可以代码解耦和，后续只需修改properties文件即可 
+		&ndash;&gt; -->
+	<!--<bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> -->
+	<!--<property name="locations"> -->
+	<!--<list> -->
+	<!--&lt;!&ndash; dataSourse连接池相关属性，代码不在此贴出，会放在打包好的项目里面 &ndash;&gt; -->
+	<!--<value>classpath:jdbc.properties</value> -->
+	<!--</list> -->
+	<!--</property> -->
+	<!--</bean> -->
+
+	<!--&lt;!&ndash; 数据库连接池数据源配置,使用应用内的DBCP数据库连接池 &ndash;&gt; -->
+	<!--<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" 
+		init-method="init" destroy-method="close"> -->
+	<!--&lt;!&ndash;property name="driverClassName" value="${db.driverClass}"/&ndash;&gt; -->
+	<!--<property name="url" value="${db.jdbcUrl}" /> -->
+	<!--<property name="username" value="${db.user}" /> -->
+	<!--<property name="password" value="${db.password}" /> -->
+
+	<!--&lt;!&ndash; 配置初始化大小、最小、最大 &ndash;&gt; -->
+	<!--<property name="initialSize" value="${db.initialSize}" /> -->
+	<!--<property name="minIdle" value="${db.minIdle}" /> -->
+	<!--<property name="maxActive" value="${db.maxActive}" /> -->
+	<!--&lt;!&ndash; 配置获取连接等待超时的时间 &ndash;&gt; -->
+	<!--<property name="maxWait" value="${db.maxWait}" /> -->
+	<!--&lt;!&ndash; 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 &ndash;&gt; -->
+	<!--<property name="timeBetweenEvictionRunsMillis" value="${db.timeBetweenEvictionRunsMillis}" 
+		/> -->
+	<!--&lt;!&ndash; 配置一个连接在池中最小生存的时间，单位是毫秒 &ndash;&gt; -->
+	<!--<property name="minEvictableIdleTimeMillis" value="${db.minEvictableIdleTimeMillis}" 
+		/> -->
+
+	<!--<property name="validationQuery" value="SELECT 'x' from dual" /> -->
+	<!--<property name="testWhileIdle" value="true" /> -->
+	<!--<property name="testOnBorrow" value="false" /> -->
+	<!--<property name="testOnReturn" value="false" /> -->
+	<!--&lt;!&ndash; 打开PSCache，并且指定每个连接上PSCache的大小 &ndash;&gt; -->
+	<!--<property name="poolPreparedStatements" value="${db.poolPreparedStatements}" 
+		/> -->
+	<!--<property name="maxPoolPreparedStatementPerConnectionSize" value="${db.maxPoolPreparedStatementPerConnectionSize}" 
+		/> -->
+	<!--</bean> -->
+
+	<!--&lt;!&ndash; 定义实体管理器工厂Jpa配置LocalContainerEntityManagerFactoryBean这个选项Spring扮演了容器的角色。完全掌管JPA 
+		&ndash;&gt; -->
+	<!--<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"> -->
+	<!--&lt;!&ndash; 指定数据源 &ndash;&gt; -->
+	<!--<property name="dataSource" ref="dataSource"/> -->
+	<!--&lt;!&ndash; 指定Jpa持久化实现厂商类,这里以Hibernate为例 &ndash;&gt; -->
+	<!--<property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter"/> -->
+	<!--&lt;!&ndash; 指定Entity实体类包路径 &ndash;&gt; -->
+	<!--<property name="packagesToScan" > -->
+	<!--<array> -->
+	<!--<value>com.weinuts.domain</value> -->
+	<!--</array> -->
+	<!--</property> -->
+	<!--&lt;!&ndash; 指定JPA属性；如Hibernate中指定是否显示SQL的是否显示、方言等 &ndash;&gt; -->
+	<!--<property name="jpaProperties"> -->
+	<!--<props> -->
+	<!--<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop> -->
+	<!--<prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop> -->
+	<!--<prop key="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</prop> -->
+	<!--<prop key="hibernate.show_sql">true</prop> -->
+	<!--<prop key="hibernate.format_sql">true</prop> -->
+	<!--<prop key="hibernate.hbm2ddl.auto">validate</prop> -->
+	<!--</props> -->
+	<!--</property> -->
+	<!--</bean> -->
+
+	<!--&lt;!&ndash; Hibernate对Jpa的实现 &ndash;&gt; -->
+	<!--<bean id="hibernateJpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"> -->
+	<!--<property name="database" value="ORACLE"/> -->
+	<!--<property name="showSql" value="true"/> -->
+	<!--</bean> -->
+
+	<!--&lt;!&ndash; Jpa 事务管理器 &ndash;&gt; -->
+	<!--<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"> -->
+	<!--<property name="entityManagerFactory" ref="entityManagerFactory"/> -->
+	<!--</bean> -->
+
+	<!--&lt;!&ndash; 开启注解事务 &ndash;&gt; -->
+	<!--<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" 
+		/> -->
+
+</beans>

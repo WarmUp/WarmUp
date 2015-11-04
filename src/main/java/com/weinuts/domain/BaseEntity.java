@@ -1,5 +1,6 @@
 package com.weinuts.domain;
 
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.SequenceGenerator;
@@ -14,14 +15,14 @@ public class BaseEntity implements Serializable{
     private static final long serialVersionUID = 5496251267231748896L;
 
     @Id
-    @SequenceGenerator(name="ORACLE_GENERATOR", sequenceName="eis_sequence", allocationSize=1000)
-    private Long id;
+    @GeneratedValue
+    private Integer id;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 }
