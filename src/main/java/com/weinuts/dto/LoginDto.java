@@ -3,7 +3,7 @@ package com.weinuts.dto;
 /**
  * Created by Administrator on 10/16/2015.
  */
-public class LoginPageDto {
+public class LoginDto {
 
     public String loginName;
 

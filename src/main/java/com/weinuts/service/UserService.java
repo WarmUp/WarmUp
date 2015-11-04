@@ -1,6 +1,7 @@
 package com.weinuts.service;
 
 import com.weinuts.domain.User;
+import com.weinuts.dto.LoginDto;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
@@ -33,4 +34,6 @@ public interface UserService {
 
     /** 带分页条件查询(得到用户列表) */
     //public List<User> getUsersByCondition(String phone,String address,Integer page,Integer pageSize);
+
+    public User findUserByLoginNameAndPassword(LoginDto loginDto);
 }

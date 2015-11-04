@@ -2,6 +2,7 @@ package com.weinuts.service.impl;
 
 import com.weinuts.dao.UserRepository;
 import com.weinuts.domain.User;
+import com.weinuts.dto.LoginDto;
 import com.weinuts.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -101,5 +102,17 @@ public class UserServiceImpl implements UserService {
 
 //        return userPage;
         return null;
+    }
+
+    @Override
+    public User findUserByLoginNameAndPassword(LoginDto loginDto) {
+        User user = null;
+        if("admin".equals(loginDto.getLoginName())&&"admin".equals(loginDto.getLoginPwd())){
+            user = new User();
+            user.setId(1);
+            user.setLoginName(loginDto.getLoginName());
+            user.setLoginPwd(loginDto.getLoginPwd());
+        }
+        return user;
     }
 }
