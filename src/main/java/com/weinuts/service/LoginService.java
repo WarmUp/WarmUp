@@ -7,4 +7,5 @@ public interface LoginService {
 
     public boolean doLogin();
 
+    public boolean doLogin(String userName, String pasword);
 }

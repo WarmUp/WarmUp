@@ -8,9 +8,9 @@
         <title>Weinuts Login Page</title>
     </head>
     <body>
-        <form action="login.html" method="post">
-            User Name:<input type="text" id="userName" name="userName">
-            Password:<input type="password" id="password" name="pasword">
+        <form action="auth/login.html" method="post">
+            User Name:<input type="text" id="userName" name="loginName">
+            Password:<input type="password" id="password" name="loginPwd">
             <input type="submit" value="Submit">
         </form>
     </body>

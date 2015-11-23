@@ -107,7 +107,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findUserByLoginNameAndPassword(LoginDto loginDto) {
         User user = null;
-        if("admin".equals(loginDto.getLoginName())&&"admin".equals(loginDto.getLoginPwd())){
+        if("qa".equals(loginDto.getLoginName())&&"qa".equals(loginDto.getLoginPwd())){
             user = new User();
             user.setId(1);
             user.setLoginName(loginDto.getLoginName());

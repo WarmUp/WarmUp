@@ -20,4 +20,13 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="2" author="lijia.wang">
+        <insert tableName="WeiNuts_User">
+            <column name="id" value="99"/>
+            <column name="loginName" value="qa"/>
+            <column name="loginPwd" value="qa"/>
+            <column name="userName" value="lijia.wang"/>
+            <column name="gender" value="male"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>

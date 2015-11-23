@@ -88,4 +88,17 @@ public class User extends BaseEntity {
     public void setValidFlag(boolean validFlag) {
         this.validFlag = validFlag;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "loginName='" + loginName + '\'' +
+                ", loginPwd='" + loginPwd + '\'' +
+                ", userName='" + userName + '\'' +
+                ", gender='" + gender + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                ", validFlag=" + validFlag +
+                '}';
+    }
 }

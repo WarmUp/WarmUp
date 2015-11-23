@@ -13,15 +13,17 @@ public class LoginDto {
         return loginName;
     }
 
-    public void setLoginName(String loginName) {
+    public LoginDto setLoginName(String loginName) {
         this.loginName = loginName;
+        return this;
     }
 
     public String getLoginPwd() {
         return loginPwd;
     }
 
-    public void setLoginPwd(String loginPwd) {
+    public LoginDto setLoginPwd(String loginPwd) {
         this.loginPwd = loginPwd;
+        return this;
     }
 }

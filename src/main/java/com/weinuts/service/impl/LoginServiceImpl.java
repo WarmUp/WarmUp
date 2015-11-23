@@ -1,5 +1,7 @@
 package com.weinuts.service.impl;
 
+import com.weinuts.domain.User;
+import com.weinuts.dto.LoginDto;
 import com.weinuts.service.LoginService;
 import com.weinuts.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,16 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public boolean doLogin() {
+        return true;
+    }
+
+    @Override
+    public boolean doLogin(String userName, String pasword) {
+        User user = userService.findUserByLoginNameAndPassword(
+                new LoginDto().setLoginName(userName).setLoginPwd(pasword));
+        if(null == user){
+            return false;
+        }
         return true;
     }
 }
