@@ -38,6 +38,14 @@ public class LoginController {
         return mv;
     }
 
+    /**
+     *
+     * @param user
+     * @param errors
+     * @return
+     * JSR-303 validation
+     * @Valid @ModelAttribute to assign which model need to be validate
+     */
     @RequestMapping("login")
     public ModelAndView doLogin(@Valid @ModelAttribute("user") User user , Errors errors){
         System.out.println(user.toString());

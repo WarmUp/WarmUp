@@ -2,6 +2,8 @@ package com.weinuts.domain;
 
 
 
+import com.weinuts.validate.annotation.SelfFixLen;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -21,6 +23,7 @@ public class User extends BaseEntity {
     private String loginName;
 
     /** 登入密码 */
+    @SelfFixLen(length = 5)
     private String loginPwd;
 
     /** 真实姓名 */
