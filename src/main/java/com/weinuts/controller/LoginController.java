@@ -4,18 +4,22 @@ import com.weinuts.domain.User;
 import com.weinuts.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.ServletRequestDataBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 /**
  * Created by Administrator on 10/15/2015.
  */
 @Controller
-@RequestMapping(value="/auth")
+@RequestMapping("/auth/")
 public class LoginController {
     @Autowired
     private LoginService loginService;
@@ -27,23 +31,23 @@ public class LoginController {
     public final String LOGIN_FAIL_VIEW = "deniedpage";
 
 
-    protected void initBinder(HttpServletRequest request, ServletRequestDataBinder binder) throws Exception {
-
-    }
-
-
-    @RequestMapping("/index")
+    @RequestMapping("index")
     public ModelAndView loginProcess(){
         ModelAndView mv = new ModelAndView();
         mv.setViewName(LOGIN_VIEW);
         return mv;
     }
 
-    @RequestMapping("/login")
-    public ModelAndView doLogin(User user){
+    @RequestMapping("login")
+    public ModelAndView doLogin(@Valid @ModelAttribute("user") User user , Errors errors){
         System.out.println(user.toString());
         ModelAndView mv = new ModelAndView();
         mv.setViewName(LOGIN_FAIL_VIEW);
+        if(errors.hasErrors()) {
+            mv.setViewName(LOGIN_VIEW);
+            mv.addObject("errors" , errors);
+            return mv;
+        }
         if(loginService.doLogin(user.getLoginName() , user.getLoginPwd())){
             mv.addObject("message", "Welcome Come WeiNuts!");
             mv.addObject("userName", user.getLoginName());
@@ -52,7 +56,7 @@ public class LoginController {
         return mv;
     }
 
-    @RequestMapping("/loginFail")
+    @RequestMapping("loginFail")
     public ModelAndView deniedPage(){
         return new ModelAndView(LOGIN_FAIL_VIEW);
     }

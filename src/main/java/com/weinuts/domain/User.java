@@ -1,7 +1,12 @@
 package com.weinuts.domain;
 
+
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 
 /**
  * Created by Administrator on 10/30/2015.
@@ -11,8 +16,8 @@ import javax.persistence.Table;
 public class User extends BaseEntity {
 
     private static final long serialVersionUID = 7602785183424649332L;
-
     /** 登入用账户名 */
+    @Size(min=1, max=2 , message="{loginName.not.empty}")
     private String loginName;
 
     /** 登入密码 */
