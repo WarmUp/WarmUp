@@ -13,8 +13,11 @@
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <org.spring.version>4.2.0.RELEASE</org.spring.version>
+        <org.spring.version1>3.2.4.RELEASE</org.spring.version1>
         <org.spring.security.version>4.0.0.RELEASE</org.spring.security.version>
         <org.hibernate.version>4.3.1.Final</org.hibernate.version>
+        <org.apache.cxf.version1>2.7.8</org.apache.cxf.version1>
+        <org.apache.cxf.version>3.1.4</org.apache.cxf.version>
     </properties>
 
     <dependencies>
@@ -229,6 +232,44 @@
         </dependency>
 
 
+        <!--
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>apache-cxf</artifactId>
+            <version>${org.apache.cxf.version}</version>
+
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.geronimo.specs</groupId>
+                    <artifactId>geronimo-servlet</artifactId>
+                </exclusion>
+            </exclusions>
+
+            <type>pom</type>
+        </dependency>
+-->
+
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxws</artifactId>
+            <version>${org.apache.cxf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http</artifactId>
+            <version>${org.apache.cxf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-ws-security</artifactId>
+            <version>${org.apache.cxf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.ws.security</groupId>
+            <artifactId>wss4j</artifactId>
+            <version>1.6.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -277,7 +318,7 @@
                         <version>3.2.2</version>
                     </dependency>
                 </dependencies>
-                <!--
+                <!--   -->
                 <executions>
                     <execution>
                         <phase>process-resources</phase>
@@ -294,7 +335,7 @@
                         </goals>
                     </execution>
                 </executions>
-                  -->
+
             </plugin>
 
             <plugin>
