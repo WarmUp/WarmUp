@@ -16,7 +16,7 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "WeiNuts_User")
-@Validator(propertyName="loginName" , regexExpression="[0-9]{4}" , message="{override.annotation.msg}")
+@Validator(propertyName="loginName" , regexExpression="[a-z0-9]{2}" , message="{override.annotation.msg}")
 public class User extends BaseEntity {
 
     private static final long serialVersionUID = 7602785183424649332L;
@@ -25,7 +25,7 @@ public class User extends BaseEntity {
     private String loginName;
 
     /** 登入密码 */
-    @SelfFixLen(length = 5 , message="{fixlength.message}")
+    @SelfFixLen(length = 2 , message="{fixlength.message}")
     private String loginPwd;
 
     /** 真实姓名 */

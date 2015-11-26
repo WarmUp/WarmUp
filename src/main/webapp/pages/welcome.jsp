@@ -17,23 +17,23 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a onclick="_hmt.push(['_trackEvent', 'navbar', 'click', 'navbar-首页'])" href="http://www.weinuts.com" class="navbar-brand hidden-sm">
-                    <b>Weinuts微果社区</b>
+                <a onclick="_hmt.push(['_trackEvent', 'navbar', 'click', 'navbar-锟斤拷页'])" href="http://www.weinuts.com" class="navbar-brand hidden-sm">
+                    <b>Weinuts</b>
                 </a>
             </div>
             <div role="navigation" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="hidden-sm hidden-md"><a onclick="_hmt.push(['_trackEvent', 'navbar', 'click', 'v2doc'])" target="_blank"
-                                                       href="http://v2.bootcss.com/">Bootstrap中文网</a></li>
-                    <li><a onclick="_hmt.push(['_trackEvent', 'navbar', 'click', 'v3doc'])" target="_blank" href="http://v3.bootcss.com/">Bootstrap3中文文档</a></li>
-                    <li><a onclick="_hmt.push(['_trackEvent', 'navbar', 'click', 'v4doc'])" target="_blank" href="http://v4.bootcss.com/">Bootstrap 4.0 预览</a></li>
-                    <li><a onclick="_hmt.push(['_trackEvent', 'navbar', 'click', 'less'])" target="_blank" href="/p/lesscss/">Less 教程</a></li>
+                                                       href="http://v2.bootcss.com/">Bootstrap</a></li>
+                    <li><a onclick="_hmt.push(['_trackEvent', 'navbar', 'click', 'v3doc'])" target="_blank" href="http://v3.bootcss.com/">Bootstrap3</a></li>
+                    <li><a onclick="_hmt.push(['_trackEvent', 'navbar', 'click', 'v4doc'])" target="_blank" href="http://v4.bootcss.com/">Bootstrap 4.0</a></li>
+                    <li><a onclick="_hmt.push(['_trackEvent', 'navbar', 'click', 'less'])" target="_blank" href="/p/lesscss/">Less </a></li>
                     <li><a onclick="_hmt.push(['_trackEvent', 'navbar', 'click', 'jquery'])" target="_blank" href="http://www.jquery123.com/">jQuery API</a></li>
-                    <li><a onclick="_hmt.push(['_trackEvent', 'navbar', 'click', 'expo'])" target="_blank" href="http://expo.bootcss.com">网站实例</a></li>
-                    <li><i class="fa fa-fire job-hot"></i><a onclick="_hmt.push(['_trackEvent', 'navbar', 'click', 'navbar-高薪工作'])" target="_blank" href="http://www.liepin.com/event/bootstrap/index.shtml?mscid=b_o_0001">高薪工作</a></li>
+                    <li><a onclick="_hmt.push(['_trackEvent', 'navbar', 'click', 'expo'])" target="_blank" href="http://expo.bootcss.com">222</a></li>
+                    <li><i class="fa fa-fire job-hot"></i><a onclick="_hmt.push(['_trackEvent', 'navbar', 'click', ''])" target="_blank" href="http://www.liepin.com/event/bootstrap/index.shtml?mscid=b_o_0001">锟斤拷薪锟斤拷锟斤拷</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right hidden-sm">
-                    <li><a onclick="_hmt.push(['_trackEvent', 'navbar', 'click', 'about'])" href="/about/">关于</a></li>
+                    <li><a onclick="_hmt.push(['_trackEvent', 'navbar', 'click', 'about'])" href="/about/">222</a></li>
                 </ul>
             </div>
         </div>

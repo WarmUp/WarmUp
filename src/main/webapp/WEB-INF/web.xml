@@ -60,7 +60,7 @@
 
     <!-- Welcome Files -->
     <welcome-file-list>
-        <welcome-file>pages/login.jsp</welcome-file>
+        <welcome-file>pages/login1.jsp</welcome-file>
 
     </welcome-file-list>
 

@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
  */
 public class SelfFixLengthImpl  implements ConstraintValidator<SelfFixLen, String> {
     private int length;
-    private static String ATOM = "[a-z0-9]{1,3}";
+    private static String ATOM = "[a-z0-9]{2}";
     private Pattern pattern = Pattern.compile(ATOM , java.util.regex.Pattern.CASE_INSENSITIVE);
     @Override
     public void initialize(SelfFixLen selfFixLen) {
