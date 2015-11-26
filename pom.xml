@@ -152,7 +152,7 @@
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc14</artifactId>
-            <version>10.2.0.2.0</version>
+            <version>10.2.0.3.0</version>
         </dependency>
 
         <dependency>
@@ -230,7 +230,6 @@
             <artifactId>protoj-nodep</artifactId>
             <version>1.8.4</version>
         </dependency>
-
 
         <!--
         <dependency>
@@ -318,7 +317,13 @@
                         <version>3.2.2</version>
                     </dependency>
                 </dependencies>
+<<<<<<< .mine
+                <!-- This setion is used for deploy liquibase script
+||||||| .r14
+                <!--
+=======
                 <!--   -->
+>>>>>>> .r15
                 <executions>
                     <execution>
                         <phase>process-resources</phase>

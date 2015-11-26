@@ -3,6 +3,7 @@ package com.weinuts.validate.annotation;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by IntelliJ IDEA.
@@ -14,7 +15,7 @@ import java.util.regex.Matcher;
 public class SelfFixLengthImpl  implements ConstraintValidator<SelfFixLen, String> {
     private int length;
     private static String ATOM = "[a-z0-9]{1,3}";
-    private java.util.regex.Pattern pattern = java.util.regex.Pattern.compile(ATOM , java.util.regex.Pattern.CASE_INSENSITIVE);
+    private Pattern pattern = Pattern.compile(ATOM , java.util.regex.Pattern.CASE_INSENSITIVE);
     @Override
     public void initialize(SelfFixLen selfFixLen) {
         this.length = selfFixLen.length();
