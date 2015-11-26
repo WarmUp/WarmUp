@@ -15,7 +15,9 @@
     <mvc:annotation-driven validator="validator" />
 
     <mvc:resources mapping="/images/**" location="/images/" />
+    <mvc:resources mapping="/img/**" location="/img/" />
     <mvc:resources mapping="/css/**" location="/css/" />
+    <mvc:resources mapping="/css/warmupCss/**" location="/css/warmupCss/" />
 
 	<!-- 设置使用注解的类所在的jar包 -->
 	<context:component-scan base-package="com.weinuts.controller" />
@@ -24,8 +26,5 @@
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		p:prefix="/pages/" p:suffix=".jsp" />
-
-    <mvc:resources mapping="/images/**" location="/images/" />
-    <mvc:resources mapping="/css/**" location="/css/" />
 
 </beans>
