@@ -52,11 +52,49 @@
         <ul class="nav-item navbar-right">
             <li class="active">
                 <!-- <i class="header-app-icon"></i>   -->
-                <a href="#">登录<span class="sr-only">(current)</span></a>
+                <a href="#" data-toggle="modal" data-target="#myModal">登录<span class="sr-only">(current)</span></a>
+                <button  class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">登录</button>
             </li>
             <li><a href="#">注册</a></li>
         </ul>
     </div>
+
+
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">登录界面</h4>
+                </div>
+                <div class="modal-body">
+                        <form class="form-signin" action="auth/login.html">
+                            <h2 class="form-signin-heading">Please sign in</h2>
+                            <label for="inputUserName" class="sr-only">User Name</label>
+                            <input type="text" id="inputUserName" class="form-control" placeholder="User Name" name="loginName" required autofocus >
+                            <label for="inputPassword" class="sr-only">Password</label>
+                            <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="loginPwd" required>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="remember-me"> Remember me
+                                </label>
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                        </form>
+                        <div class="has-error">
+                            <c:if test="${errors.fieldErrorCount > 0}">
+                                <br/>
+                                <c:forEach items="${errors.fieldErrors}" var="error">
+                                    <spring:message var="message" code="${error.code}" arguments="${error.arguments}" text="${error.defaultMessage}"/>
+                                    <label for="inputPassword">{error.field}------${message}</label><br/>
+                                </c:forEach>
+                            </c:if>
+                        </div>
+                    </div>
+              </div>
+        </div>
+    </div>
+
 
 </div>
 
