@@ -6,7 +6,7 @@
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<div id="courseList" style="padding-left:15px">
+<div id="courseList" style="padding-left:15px;padding-top: 20px">
     <div class="row">
         <div class="col-xs-3 col-md-3">
             <div class="thumbnail">
@@ -27,7 +27,7 @@
 
         <div class="col-xs-6 col-md-3">
             <a href="#" class="thumbnail">
-                <img src="<%=basePath%>img/01-video.png" alt="...">
+                <img src="<%=basePath%>img/java.jpg" alt="...">
             </a>
         </div>
 
