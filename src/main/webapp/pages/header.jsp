@@ -8,10 +8,15 @@
 %>
 <script>
     $(function(){
+        $("#courseAction").click(function(){
+            loadPage("switch_content", "<%=basePath%>pages/icourse.jsp");
+            //$("#switch_content").load("<%=basePath%>pages/icourse.jsp");
+        });
         $("#planAction").click(function(){
-                alert('11');
-            $("#courseList").load("<%=basePath%>pages/gbanner.jsp");
-        })
+            loadPage("switch_content", "<%=basePath%>pages/gbanner.jsp");
+            //$("#switch_content").load("<%=basePath%>pages/gbanner.jsp");
+        });
+
     })
 </script>
 <div id="header">
@@ -34,7 +39,7 @@
 
         <div class="g-menu-mini">
             <ul class="nav-item">
-                <li class="active"><a href="#">课程 <span class="badge">4</span></a></li>
+                <li class="active"><a id="courseAction" href="#">课程 <span class="badge">4</span></a></li>
                 <li><a id="planAction" href="#" onclick="executeLoad()">计划</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">问答<span class="caret"></span></a>
