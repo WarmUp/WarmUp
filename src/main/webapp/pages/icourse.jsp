@@ -1,4 +1,46 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<div id="courseList" style="padding-left:15px">
+    <div class="row">
+        <div class="col-xs-3 col-md-3">
+            <div class="thumbnail">
+                <div class="caption">
+                    <a href="#"><img src="<%=basePath%>img/java.jpg" alt="..." border="1px"></a>
+                    <BR/>
+                    <h3>JAVA Course label</h3>
+                    <BR/>
+                    <p>JAVA course description...</p>
+                    <BR/>
+                    <p>
+                        <a href="#" class="btn btn-primary" role="button">购买</a>
+                        <a href="#" class="btn btn-default" role="button">了解更多</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+            <a href="#" class="thumbnail">
+                <img src="<%=basePath%>img/01-video.png" alt="...">
+            </a>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+            <a href="#" class="thumbnail">
+                <img src="<%=basePath%>img/03-rockets.png" alt="...">
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<!--
 <div class="icourse">
     <div class="incourse-wrap idx-width">
         <h2 class="icourse-title hide-text">课程</h2>
@@ -51,3 +93,4 @@
         </div>
     </div>
 </div>
+-->
