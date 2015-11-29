@@ -57,7 +57,12 @@
         </div>
         <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
-                <input type="text" class="form-control " placeholder="Search">
+                <div class="input-group">
+                    <input type="text" class="form-control " placeholder="Luncence Search coming.">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Go bang bang!</button>
+                    </span>
+                </div>
             </div>
             <button type="submit" class="btn btn-default">查找</button>
         </form>
