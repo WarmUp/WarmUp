@@ -20,7 +20,7 @@
                 <!-- <img alt="Brand" src="" style="width:100%;height:100%"/> -->
                 Brand
             </a>
-            <div id="logo" class="logo"><a href="#" target="_self" class="hide-text">慕课网</a></div>
+            <!-- <div id="logo" class="logo"><a href="#" target="_self" class="hide-text">慕课网</a></div> -->
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -46,7 +46,7 @@
                 </div>
                 <button type="submit" class="btn btn-default">查找</button>
             </form>
-            <ul class="nav navbar-nav right">
+            <ul class="nav navbar-nav navbar-right">
                 <li class="active">
                     <!-- <i class="header-app-icon"></i> -->
                     <a href="#">登录<span class="sr-only">(current)</span></a>

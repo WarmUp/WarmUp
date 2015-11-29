@@ -10,12 +10,17 @@
         String path = request.getContextPath();
         String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
     %>
+    <script type="text/javascript" charset="utf-8" async="" src="<%=basePath%>static/js/jquery.js"></script>
     <jsp:include page="resource.jsp"/>
+
 </head>
 
 <body id="index">
-
-
+<script type="text/javascript" >
+    $().ready(function(){
+        alert("welcome to the ping pong battle.");
+    })
+</script>
 
 <jsp:include page="header.jsp"/>
 <%--

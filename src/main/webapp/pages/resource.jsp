@@ -24,5 +24,5 @@
 <link href="<%=basePath%>css/warmupCss/bb-copy.css" rel="stylesheet">
 
 <link href="<%=basePath%>css/warmupCss/self.css" rel="stylesheet">
-<%-- <script charset="utf-8" async="" src="<%=basePath%>static/js/jquery.js"/>   --%>
+
 
