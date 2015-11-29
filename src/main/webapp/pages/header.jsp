@@ -6,7 +6,14 @@
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<script>
+    $(function(){
+        $("#planAction").click(function(){
+                alert('11');
+            $("#courseList").load("<%=basePath%>pages/gbanner.jsp");
+        })
+    })
+</script>
 <div id="header">
 
     <div id="nav" class="page-container" >
@@ -28,7 +35,7 @@
         <div class="g-menu-mini">
             <ul class="nav-item">
                 <li class="active"><a href="#">课程 <span class="badge">4</span></a></li>
-                <li><a href="#">计划</a></li>
+                <li><a id="planAction" href="#" onclick="executeLoad()">计划</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">问答<span class="caret"></span></a>
                     <ul class="dropdown-menu">
