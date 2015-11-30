@@ -1,0 +1,9 @@
+Group Name,Rule Name,Expression
+groupa,ruleBasic1,1==1
+groupa,ruleBasic2,1==2
+groupa,ruleBasic3,2*3==6
+groupa,ruleBasic4,1*3==6
+groupa,ruleBasic5,loginName.length()>10
+groupa,ruleBasic6,loginName.length()<10
+groupa,ruleBasic7,loginPwd.length()>10
+groupa,ruleBasic8,loginPwd.length()<10
