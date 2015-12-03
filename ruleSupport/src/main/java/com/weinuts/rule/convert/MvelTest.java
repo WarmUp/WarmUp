@@ -1,6 +1,6 @@
 package com.weinuts.rule.convert;
 
-import com.weinut.domain.User;
+import com.weinuts.domain.User;
 import org.mvel2.DataConversion;
 import org.mvel2.MVEL;
 import org.mvel2.ParserContext;

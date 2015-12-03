@@ -1,6 +1,6 @@
 package com.weinuts.dao;
 
-import com.weinut.domain.User;
+import com.weinuts.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

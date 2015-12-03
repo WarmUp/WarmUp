@@ -1,3 +1,6 @@
 .idea/*
+/app/target/*
+*.jar
+*.war
+*.iml
 WarmUp.iml
-target/*

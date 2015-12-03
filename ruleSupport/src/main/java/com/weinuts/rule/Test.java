@@ -1,6 +1,6 @@
 package com.weinuts.rule;
 
-import com.weinut.domain.User;
+import com.weinuts.domain.User;
 
 import java.util.LinkedList;
 
