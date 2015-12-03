@@ -5,7 +5,15 @@
     <groupId>com.weinuts</groupId>
     <artifactId>WarmUp</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <modules>
+        <module>liquibase</module>
+        <module>cxf</module>
+        <module>domain</module>
+        <module>ruleSupport</module>
+        <module>annotation</module>
+        <module>app</module>
+    </modules>
+    <packaging>pom</packaging>
 
     <name>WarmUp</name>
 
@@ -16,12 +24,13 @@
         <org.spring.version1>3.2.4.RELEASE</org.spring.version1>
         <org.spring.security.version>4.0.0.RELEASE</org.spring.security.version>
         <org.hibernate.version>4.3.1.Final</org.hibernate.version>
-
         <!-- CXF version -->
         <org.apache.cxf.version1>2.7.8</org.apache.cxf.version1>
         <org.apache.cxf.version>3.1.4</org.apache.cxf.version>
     </properties>
 
+
+    <dependencyManagement>
     <dependencies>
 
         <!-- 添加Spring的核心库 -->
@@ -102,11 +111,7 @@
         </dependency>
 
 
-        <dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-core</artifactId>
-            <version>3.3.5</version>
-        </dependency>
+
 
         <!--<dependency>-->
             <!--<groupId>commons-logging</groupId>-->
@@ -214,19 +219,12 @@
             </exclusions>
         </dependency>
 
-
         <dependency>
             <groupId>com.google.code.protoj</groupId>
             <artifactId>protoj-nodep</artifactId>
             <version>1.8.4</version>
         </dependency>
         
-       
-
-
-
-
-
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-frontend-jaxws</artifactId>
@@ -248,7 +246,6 @@
             <version>1.6.0</version>
         </dependency>
 
-
         <dependency>
             <groupId>org.mvel</groupId>
             <artifactId>mvel2</artifactId>
@@ -256,80 +253,16 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-csv</artifactId>
-            <version>1.2</version>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils-core</artifactId>
+            <version>1.8.0</version>
         </dependency>
 
     </dependencies>
-
+    </dependencyManagement>
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>properties-maven-plugin</artifactId>
-                <version>1.0.0</version>
-                <executions>
-                    <execution>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>read-project-properties</goal>
-                        </goals>
-                        <configuration>
 
-                            <files>
-                                <file>src/main/resources/jdbc.properties</file>
-                            </files>
-
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-
-            <plugin>
-                <groupId>org.liquibase</groupId>
-                <artifactId>liquibase-maven-plugin</artifactId>
-                <version>3.2.2</version>
-                <!--
-                <configuration>
-                    <changeLogFile>src/main/resources/db/warmup-liquibase.xml</changeLogFile>
-                    <outputChangeLogFile>src/main/resources/db/output-liquibase.xml</outputChangeLogFile>
-                    <driver>oracle.jdbc.driver.OracleDriver</driver>
-                    <url>jdbc:oracle:thin:@suzeis-dl-db02:1521:dgigseed</url>
-                    <username>kzhang</username>
-                    <password>exigen</password>
-                    <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
-                </configuration>
-                -->
-                <dependencies>
-                    <dependency>
-                        <groupId>org.liquibase</groupId>
-                        <artifactId>liquibase-core</artifactId>
-                        <version>3.2.2</version>
-                    </dependency>
-                </dependencies>
-
-                <!-- This setion is used for deploy liquibase script -->
-
-                <executions>
-                    <execution>
-                        <phase>process-resources</phase>
-                        <configuration>
-                            <changeLogFile>${basedir}/src/main/resources/db/warmup-liquibase.xml</changeLogFile>
-                            <driver>${db.driverClassName}</driver>
-                            <url>${db.jdbcUrl}</url>
-                            <username>${db.user}</username>
-                            <password>${db.password}</password>
-                            <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
-                        </configuration>
-                        <goals>
-                            <goal>update</goal>
-                        </goals>
-                    </execution>
-                </executions>
-
-            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
