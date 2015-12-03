@@ -75,6 +75,7 @@
             <!-- This setion is used for deploy liquibase script -->
 
             <executions>
+                <!--
                 <execution>
                     <phase>process-resources</phase>
                     <configuration>
@@ -89,6 +90,7 @@
                         <goal>update</goal>
                     </goals>
                 </execution>
+                -->
             </executions>
 
         </plugin>

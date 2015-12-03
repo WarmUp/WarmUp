@@ -21,8 +21,9 @@
 	<!--定义实体的工厂bean -->
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <!-- <property name="packagesToScan" value="com.weinuts.domain" />  -->
 		<property name="persistenceUnitName" value="userPU" />
-		<property name="persistenceXmlLocation" value="classpath:persistence.xml"></property>
+		<property name="persistenceXmlLocation" value="classpath:META-INF/persistence.xml"></property>
 	</bean>
 
 	<!--第三步 -->

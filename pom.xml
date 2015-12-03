@@ -315,6 +315,7 @@
                 <version>2.2</version>
                 <configuration>
                     <url>http://localhost:8080/manager/text</url>
+                    <uriEncoding>UTF-8</uriEncoding>
                     <server>TomcatMaven7</server>
                     <path>/WarmUp</path>
                 </configuration>

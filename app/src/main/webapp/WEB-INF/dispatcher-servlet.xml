@@ -12,8 +12,8 @@
 	<!-- 启用spring mvc 注解 -->
 	<context:annotation-config />
     <!-- 指定自己定义的validator -->
-    <mvc:annotation-driven validator="validator" />
-
+    <!-- <mvc:annotation-driven validator="validator" />  -->
+    <mvc:annotation-driven />
     <mvc:default-servlet-handler/>
     <!--
     annotation below it seem sometime do not work well
