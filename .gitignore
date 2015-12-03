@@ -1,5 +1,6 @@
 .idea/*
 /app/target/*
+*/target/*
 *.jar
 *.war
 *.iml
