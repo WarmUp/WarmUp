@@ -1,8 +1,6 @@
 package com.weinuts.controller;
 
 import com.weinuts.dao.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 
 /**
  * Created by IntelliJ IDEA.
