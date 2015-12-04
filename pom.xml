@@ -29,11 +29,55 @@
         <!-- CXF version -->
         <org.apache.cxf.version1>2.7.8</org.apache.cxf.version1>
         <org.apache.cxf.version>3.1.4</org.apache.cxf.version>
+        <project.warmup.version>1.0-SNAPSHOT</project.warmup.version>
     </properties>
 
 
     <dependencyManagement>
     <dependencies>
+
+        <!-- WarmUp Submodel Comfiguration -->
+        <dependency>
+            <groupId>com.weinuts</groupId>
+            <artifactId>annotation</artifactId>
+            <version>${project.warmup.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.weinuts</groupId>
+            <artifactId>cxf</artifactId>
+            <version>${project.warmup.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.weinuts</groupId>
+            <artifactId>domain</artifactId>
+            <version>${project.warmup.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.weinuts</groupId>
+            <artifactId>dto</artifactId>
+            <version>${project.warmup.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.weinuts</groupId>
+            <artifactId>liquibase</artifactId>
+            <version>${project.warmup.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.weinuts</groupId>
+            <artifactId>ruleSupport</artifactId>
+            <version>${project.warmup.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.weinuts</groupId>
+            <artifactId>service</artifactId>
+            <version>${project.warmup.version}</version>
+        </dependency>
 
         <!-- 添加Spring的核心库 -->
         <dependency>
@@ -54,14 +98,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
-        <!-- 添加Spring Bean的管理类库
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>${org.spring.version}</version>
-        </dependency>
-        -->
 
         <dependency>
             <groupId>org.springframework</groupId>
@@ -105,21 +141,11 @@
             <version>${org.hibernate.version}</version>
         </dependency>
 
-
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.1-api</artifactId>
             <version>1.0.0.Final</version>
         </dependency>
-
-
-
-
-        <!--<dependency>-->
-            <!--<groupId>commons-logging</groupId>-->
-            <!--<artifactId>commons-logging</artifactId>-->
-            <!--<version>1.2</version>-->
-        <!--</dependency>-->
 
         <dependency>
             <groupId>ch.qos.logback</groupId>
@@ -143,7 +169,6 @@
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc14</artifactId>
-			<!-- <version>10.2.0.3.0</version> -->
             <version>10.2.0.2.0</version>
         </dependency>
 
@@ -160,12 +185,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-            <version>1.0.13</version>
-        </dependency>
-
-        <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
             <version>1.0.0.GA</version>
@@ -176,14 +195,6 @@
             <version>${org.hibernate.version}</version>
         </dependency>
 
-        <!--
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.0.1</version>
-            <scope>provided</scope>
-        </dependency>
-        -->
         <!-- jstl  -->
         <dependency>
             <groupId>javax.servlet.jsp.jstl</groupId>
@@ -260,12 +271,36 @@
             <version>1.8.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-csv</artifactId>
+            <version>1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.8.0</version>
+        </dependency>
+
+        <!-- liquibase configuration -->
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>3.3.5</version>
+        </dependency>
+
     </dependencies>
     </dependencyManagement>
+
     <build>
         <plugins>
-
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
