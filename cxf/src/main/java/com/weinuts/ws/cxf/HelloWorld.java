@@ -1,11 +1,18 @@
 package com.weinuts.ws.cxf;
 
+import com.weinuts.ws.cxf.exception.CxfException;
+
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebResult;
 import javax.jws.WebService;
 
 /**
  * Created by kernwang on 2015/11/25.
  */
-@WebService
+@WebService(targetNamespace = "http://com.warmup")
 public interface HelloWorld {
-    String sayHi(String text);
+    @WebMethod(operationName = "sayHi")
+    @WebResult(name = "OUTPUT_TEXT")
+    String sayHi(@WebParam(name = "INPUT_TEXT") String text) throws CxfException;
 }
