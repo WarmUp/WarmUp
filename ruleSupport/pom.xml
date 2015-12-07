@@ -38,6 +38,7 @@
         <dependency>
             <groupId>com.weinuts</groupId>
             <artifactId>domain</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
 
 

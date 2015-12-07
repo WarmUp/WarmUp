@@ -13,15 +13,47 @@
     <bean id="inMessageInterceptor" class="org.apache.cxf.interceptor.LoggingInInterceptor" />
     <bean id="outMessageInterceptor" class="org.apache.cxf.interceptor.LoggingOutInterceptor"/>
 
+    <bean id="fault" class="org.apache.cxf.interceptor.FaultOutInterceptor"/>
+
+
+
     <bean id="hello" class="com.weinuts.ws.cxf.HelloWorldImpl" />
 
-    <jaxws:endpoint id="helloWorld" implementor="#hello" address="/HelloWorld">
+    
+    <bean id="invokeFaultExceptionMapper" class="com.weinuts.ws.cxf.exception.InvokeFaultExceptionMapper"/>
+    <!--
+    Way one to export a webservice endpoint -->
+    <jaxws:endpoint id="helloWorld" implementor="#hello" address="/HelloWorld" >
+
         <jaxws:inInterceptors>
             <ref bean="inMessageInterceptor"/>
         </jaxws:inInterceptors>
         <jaxws:outInterceptors>
             <ref bean="outMessageInterceptor"/>
         </jaxws:outInterceptors>
+
+        <jaxws:outFaultInterceptors>
+                <ref bean="fault"/>
+        </jaxws:outFaultInterceptors>
+
     </jaxws:endpoint>
+
+    <!--
+    <jaxws:server>
+        <jaxws:serviceBean>
+            <ref bean="hello"/>
+        </jaxws:serviceBean>
+        <jaxws:inInterceptors>
+            <ref bean="inMessageInterceptor"/>
+        </jaxws:inInterceptors>
+        <jaxws:outInterceptors>
+            <ref bean="outMessageInterceptor"/>
+        </jaxws:outInterceptors>
+
+        <jaxws:outFaultInterceptors>
+
+        </jaxws:outFaultInterceptors>
+    </jaxws:server>
+     -->
 
 </beans>

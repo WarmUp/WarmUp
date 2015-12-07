@@ -29,5 +29,72 @@
              <groupId>org.apache.ws.security</groupId>
              <artifactId>wss4j</artifactId>
          </dependency>
+         <!--  -->
+         <dependency>
+             <groupId>javax.ws.rs</groupId>
+             <artifactId>javax.ws.rs-api</artifactId>
+         </dependency>
+
+         <dependency>
+             <groupId>commons-lang</groupId>
+             <artifactId>commons-lang</artifactId>
+         </dependency>
+
+         <dependency>
+             <groupId>org.apache.cxf</groupId>
+             <artifactId>cxf-rt-databinding-jaxb</artifactId>
+         </dependency>
+
+         <dependency>
+             <groupId>org.apache.cxf</groupId>
+             <artifactId>cxf-xjc-ts</artifactId>
+         </dependency>
+         <!--
+         <dependency>
+             <groupId>org.apache.cxf</groupId>
+             <artifactId>cxf-api</artifactId>
+             <version>2.7.18</version>
+         </dependency>
+          -->
      </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-codegen-plugin</artifactId>
+                <version>${org.apache.cxf.version}</version>
+                <!-- -->
+                <executions>
+                    <execution>
+                        <id>generate-sources</id>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <sourceRoot>${project.build.directory}/generated-sources/javaa</sourceRoot>
+                            <wsdlOptions>
+                                <wsdlOption>
+                                    <wsdl>${basedir}/src/main/resources/hello.wsdl</wsdl>
+                                    <extraargs>
+                                        <extraarg>-asyncMethods=processRequest</extraarg>
+                                        <extraarg>-xjc-Xts</extraarg>
+                                    </extraargs>
+                                </wsdlOption>
+                            </wsdlOptions>
+                        </configuration>
+                        <goals>
+                            <goal>wsdl2java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.cxf</groupId>
+                        <artifactId>cxf-xjc-ts</artifactId>
+                        <version>2.2.12</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
 </project>
