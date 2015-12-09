@@ -2,12 +2,18 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:jaxws="http://cxf.apache.org/jaxws"
-       xsi:schemaLocation=" http://www.springframework.org/schema/beans
+       xmlns:jaxrs="http://cxf.apache.org/jaxrs" xmlns:cxf="http://cxf.apache.org/core"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+       http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+       http://cxf.apache.org/simple http://cxf.apache.org/schemas/simple.xsd
+       http://cxf.apache.org/jaxrs
+       http://cxf.apache.org/schemas/jaxrs.xsd http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
     <import resource="classpath:META-INF/cxf/cxf.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
     <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
-    <!-- <jaxws:endpoint id="helloWorld" implementor="com.weinuts.ws.cxf.HelloWorldImpl" address="/HelloWorld"/>
+    <!--<import resource="classpath:META-INF/cxf/cxf-extension-jaxrs-binding.xml" />
+  <jaxws:endpoint id="helloWorld" implementor="com.weinuts.ws.cxf.HelloWorldImpl" address="/HelloWorld"/>
     -->
 
     <bean id="inMessageInterceptor" class="org.apache.cxf.interceptor.LoggingInInterceptor" />
@@ -15,16 +21,12 @@
 
     <bean id="fault" class="org.apache.cxf.interceptor.FaultOutInterceptor"/>
 
-
-
     <bean id="hello" class="com.weinuts.ws.cxf.HelloWorldImpl" />
 
-    
     <bean id="invokeFaultExceptionMapper" class="com.weinuts.ws.cxf.exception.InvokeFaultExceptionMapper"/>
     <!--
     Way one to export a webservice endpoint -->
     <jaxws:endpoint id="helloWorld" implementor="#hello" address="/HelloWorld" >
-
         <jaxws:inInterceptors>
             <ref bean="inMessageInterceptor"/>
         </jaxws:inInterceptors>
@@ -35,8 +37,26 @@
         <jaxws:outFaultInterceptors>
                 <ref bean="fault"/>
         </jaxws:outFaultInterceptors>
-
     </jaxws:endpoint>
+
+
+    <bean id="restfulService" class="com.weinuts.ws.cxf.restful.service.RestfulServiceImpl" />
+
+    <!-- <beans profile="webservices">   -->
+        <jaxrs:server id="rsService" address="/test">
+            <jaxrs:features>
+                 <cxf:logging/>
+            </jaxrs:features>
+            <jaxrs:serviceBeans>
+                <ref bean="restfulService" />
+            </jaxrs:serviceBeans>
+            <!--
+            <jaxrs:providers>
+                <ref bean="dgigExceptionMapper"/>
+            </jaxrs:providers>
+            -->
+        </jaxrs:server>
+    <!-- </beans>   -->
 
     <!--
     <jaxws:server>

@@ -19,6 +19,11 @@
          </dependency>
          <dependency>
              <groupId>org.apache.cxf</groupId>
+             <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+             <version>${org.apache.cxf.version1}</version>
+         </dependency>
+         <dependency>
+             <groupId>org.apache.cxf</groupId>
              <artifactId>cxf-rt-transports-http</artifactId>
          </dependency>
          <dependency>
@@ -29,12 +34,12 @@
              <groupId>org.apache.ws.security</groupId>
              <artifactId>wss4j</artifactId>
          </dependency>
-         <!--  -->
+         <!--
          <dependency>
              <groupId>javax.ws.rs</groupId>
              <artifactId>javax.ws.rs-api</artifactId>
          </dependency>
-
+         -->
          <dependency>
              <groupId>commons-lang</groupId>
              <artifactId>commons-lang</artifactId>
@@ -49,13 +54,13 @@
              <groupId>org.apache.cxf</groupId>
              <artifactId>cxf-xjc-ts</artifactId>
          </dependency>
-         <!--
+
          <dependency>
              <groupId>org.apache.cxf</groupId>
              <artifactId>cxf-api</artifactId>
-             <version>2.7.18</version>
+
          </dependency>
-          -->
+
      </dependencies>
 
     <build>

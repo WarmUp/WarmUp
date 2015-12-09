@@ -29,10 +29,8 @@ public class Client {
             ResultResponseType responseType = helloWorld.sayHi("error");
             System.out.println(responseType.getCxfFault().getResultCode());
             System.out.println(responseType.getCxfFault().getResultCodeDes());
-
         } catch (Exception_Exception e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
-
     }
 }

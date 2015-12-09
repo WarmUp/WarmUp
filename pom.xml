@@ -4,7 +4,7 @@
 
     <groupId>com.weinuts</groupId>
     <artifactId>WarmUp</artifactId>
-    <version>${project.version}</version>
+    <version>1.0-SNAPSHOT</version>
     <modules>
         <module>liquibase</module>
         <module>domain</module>
@@ -43,43 +43,43 @@
         <dependency>
             <groupId>com.weinuts</groupId>
             <artifactId>annotation</artifactId>
-            <version>${project.warmup.version}</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>com.weinuts</groupId>
             <artifactId>cxf</artifactId>
-            <version>${project.warmup.version}</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>com.weinuts</groupId>
             <artifactId>domain</artifactId>
-            <version>${project.warmup.version}</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>com.weinuts</groupId>
             <artifactId>dto</artifactId>
-            <version>${project.warmup.version}</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>com.weinuts</groupId>
             <artifactId>liquibase</artifactId>
-            <version>${project.warmup.version}</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>com.weinuts</groupId>
             <artifactId>ruleSupport</artifactId>
-            <version>${project.warmup.version}</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>com.weinuts</groupId>
             <artifactId>service</artifactId>
-            <version>${project.warmup.version}</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
 
         <!-- 添加Spring的核心库 -->
@@ -285,12 +285,13 @@
             <artifactId>cxf-rt-databinding-jaxb</artifactId>
             <version>${org.apache.cxf.version}</version>
         </dependency>
-
+        <!--
         <dependency>
             <groupId>javax.ws.rs</groupId>
             <artifactId>javax.ws.rs-api</artifactId>
             <version>${org.apache.cxf.api.version}</version>
         </dependency>
+        -->
         <dependency>
             <groupId>org.apache.ws.security</groupId>
             <artifactId>wss4j</artifactId>
@@ -307,6 +308,12 @@
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-api</artifactId>
             <version>${org.apache.cxf.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+            <version>${org.apache.cxf.version1}</version>
         </dependency>
 
         <dependency>
